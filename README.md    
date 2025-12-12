@@ -1,0 +1,61 @@
+# Training Modules App
+
+## Overview
+A simple Android app in Kotlin that displays a list of training modules, allows marking them as completed or pending, and persists the status using `SharedPreferences`. The app uses XML layouts and RecyclerView.
+
+---
+
+## Features
+- Home screen shows a vertical list of modules with title, short description, and status.
+- Detail screen shows full title and description with a button to toggle completed/pending.
+- Three filter buttons on Home screen: All, Completed, Pending.
+- Persistent status using SharedPreferences.
+- App Bar on both screens with proper navigation.
+
+---
+
+## Technical Requirements
+- **Language:** Kotlin
+- **Separation of concerns:** Simple UI and data logic separation (can be upgraded to MVVM).
+- **Jetpack Components:** SharedPreferences used for persistence; can integrate ViewModel or LiveData for state management.
+- **Target SDK:** Recent Android version (API 33+ recommended)
+- **UI:** XML layouts, RecyclerView
+
+---
+
+## Architecture
+Currently implemented as a simple **UI + data separation**:
+
+- **Data:** `TrainingModule` data class and SharedPreferences for persistence.
+- **UI:** `HomeActivity` and `DetailActivity` handle UI and user interactions.
+- **Adapter:** `ModuleAdapter` binds data to RecyclerView.
+- **Filter logic:** Managed in HomeActivity.
+
+**Note:** Not full MVVM, but separation allows easy refactor.
+
+---
+
+## Installation and Run Instructions
+1. Clone the repository.
+2. Open the project in **Android Studio**.
+3. Ensure the **SDK version** is up to date.
+4. Build and run on an emulator or device.
+5. Interact with the modules list and detail screen; status changes persist.
+
+---
+
+## Why this approach
+- Chose **SharedPreferences** for persistence due to simplicity and the small dataset.
+- Used **RecyclerView + Adapter** for modular UI.
+- Filter buttons allow dynamic updates without heavy architecture.
+
+---
+
+## Improvements with more time
+If we had **one more day**, we would:
+- Implement **MVVM** fully using **ViewModel + LiveData/StateFlow** for better state management.
+- Replace SharedPreferences with **Room** for more structured persistence.
+- Make filters **highlight the selected button** for better UX.
+- Add **animations for completed/pending** state change.
+- Add **unit and UI tests** for reliability.
+- Support **dynamic data loading** instead of hardcoded modules.
