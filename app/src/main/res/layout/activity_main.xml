@@ -1,0 +1,54 @@
+<!-- res/layout/activity_home.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/homeToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:title="Training Modules"
+        android:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <!-- Filter buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnAll"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="All"/>
+
+        <Button
+            android:id="@+id/btnCompleted"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:text="Completed"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnPending"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:text="Pending"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>
